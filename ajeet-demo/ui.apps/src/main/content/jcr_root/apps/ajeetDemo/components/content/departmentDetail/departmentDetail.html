@@ -1,0 +1,12 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>
+
+this is department detail component <br>
+
+<!--<sly data-sly-use.model="com.java.demo.models.DepartmentDetailModel"/>-->
+
+<form action="">
+    <label>Department Name :</label><br>
+    <input type="text" id="department" name="department"/><br>
+    <input type="button" value="Submit" onclick="save()"/>
+</form>
