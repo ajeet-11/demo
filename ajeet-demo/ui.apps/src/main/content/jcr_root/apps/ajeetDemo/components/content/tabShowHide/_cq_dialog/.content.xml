@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="show hide tab"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/layouts/tabs"/>
+        <items jcr:primaryType="nt:unstructured">
+            <tab0
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select Tabs"
+                    sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                        margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <firstName
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Please enter the first name"
+                                            fieldLabel="First Name"
+                                            required="true"
+                                            name="./firstName"/>
+                                    <lastName
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Please enter the last name"
+                                            fieldLabel="Last Name"
+                                            required="true"
+                                            name="./lastName"/>
+                                    <contact
+                                            jcr:primaryType="nt:unstructured"
+                                            class="cq-dialog-submit"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Please enter the contact"
+                                            fieldLabel="Contact No"
+                                            required="true"
+                                            name="./contact"/>
+                                    <address
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Please enter the address"
+                                            fieldLabel="Address"
+                                            required="true"
+                                            name="./address"/>
+                                    <drpdown
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/select"
+                                            class="cq-dialog-tab-showhide"
+                                            cq-dialog-tab-showhide-target=".list-option-tab-showhide-target"
+                                            fieldLabel="Hobby"
+                                            name="./hobby">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <tab1
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Games"
+                                                    value="games"/>
+                                            <tab2
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Movies"
+                                                    value="movies"/>
+                                            <tab3
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Books"
+                                                    value="books"/>
+                                        </items>
+                                    </drpdown>
+                                </items>
+                            </column>
+                        </items>
+                    </column>
+                </items>
+            </tab0>
+            <tab1
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Games"
+                    sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                        margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <multi
+                                            granite:class=""
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true">
+                                        <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./multi">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <container
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <gamesName
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add games name"
+                                                                fieldLabel="Game Name"
+                                                                name="./gamesName"
+                                                                required="{Boolean}true"/>
+                                                        <developedBy
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add develper name"
+                                                                fieldLabel="Developed By"
+                                                                name="./developedBy"
+                                                                required="{Boolean}true"/>
+                                                    </items>
+                                                </container>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </column>
+                </items>
+                <layoutConfig
+                        jcr:primaryType="nt:unstructured"
+                        class="hide list-option-tab-showhide-target games"/>
+            </tab1>
+            <tab2
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Movies"
+                    sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                        margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <multi
+                                            granite:class=""
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true">
+                                        <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./multi">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <container
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <moviesName
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add movie name"
+                                                                fieldLabel="Movie Name"
+                                                                name="./movieName"
+                                                                required="{Boolean}true"/>
+                                                        <directedBy
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add director name"
+                                                                fieldLabel="Directed By"
+                                                                name="./directedBy"
+                                                                required="{Boolean}true"/>
+                                                    </items>
+                                                </container>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </column>
+                </items>
+                <layoutConfig
+                        jcr:primaryType="nt:unstructured"
+                        class="hide list-option-tab-showhide-target movies"/>
+            </tab2>
+            <tab3
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="books"
+                    sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                        margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <multi
+                                            granite:class=""
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true">
+                                        <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./multi">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <container
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <booksName
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add book name"
+                                                                fieldLabel="Book Name"
+                                                                name="./bookName"
+                                                                required="{Boolean}true"/>
+                                                        <writtenBy
+                                                                granite:class="cmp-teaser__editor-actionField"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Add writer name"
+                                                                fieldLabel="Written By"
+                                                                name="./writtenBy"
+                                                                required="{Boolean}true"/>
+                                                    </items>
+                                                </container>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </column>
+                </items>
+                <layoutConfig
+                        jcr:primaryType="nt:unstructured"
+                        class="hide list-option-tab-showhide-target books"/>
+            </tab3>
+        </items>
+    </content>
+</jcr:root>
