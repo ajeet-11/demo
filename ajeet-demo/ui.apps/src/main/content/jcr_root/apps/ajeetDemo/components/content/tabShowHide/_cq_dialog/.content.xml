@@ -44,10 +44,10 @@
                                             name="./lastName"/>
                                     <contact
                                             jcr:primaryType="nt:unstructured"
-                                            class="cq-dialog-submit"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                             fieldDescription="Please enter the contact"
                                             fieldLabel="Contact No"
+                                            maxlength="10"
                                             required="true"
                                             name="./contact"/>
                                     <address

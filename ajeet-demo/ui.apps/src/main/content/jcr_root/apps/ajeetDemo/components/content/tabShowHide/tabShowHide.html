@@ -1,14 +1,73 @@
-<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
-<sly data-sly-call="${clientLib.js @ categories='ajeetDemo.base'}"/>
+<!--<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='ajeetDemo.base'}"/>-->
+
+<sly data-sly-use.model="com.ajeet.demo.core.models.TabShowHideModel"/>
 
 this is tab hide & show component <br>
 
-<!--<sly data-sly-test.text=${properties.hasChildren}>
+<!--<sly data-sly-test.text=${resource.hasChildren}>
     ${text}
 </sly>-->
 
-${properties.firstName} <br>
-${properties.lastName} <br>
-${properties.adresss} <br>
-${properties.contact} <br>
-${properties.hobby} <br>
+<sly data-sly-test.firstName=${model.firstName}>
+    firstName = ${firstName} <br>
+</sly>
+<sly data-sly-test.lastName=${model.lastName}>
+    lastName = ${lastName} <br>
+</sly>
+<sly data-sly-test.contact=${model.contact}>
+    contact = ${contact} <br>
+</sly>
+<sly data-sly-test.address=${model.address}>
+    address =  ${address} <br>
+</sly>
+<sly data-sly-test.hobby=${model.hobby}>
+    hobby = ${hobby} <br>
+</sly>
+
+<sly data-sly-test=${model.bookName}>
+    bookName :
+    <sly data-sly-list.bookName=${model.bookName}>
+        ${bookName},
+    </sly>
+</sly>
+<br>
+
+<sly data-sly-test=${model.writtenBy}>
+    writtenBy :
+    <sly data-sly-list.writtenBy=${model.writtenBy}>
+        ${writtenBy},
+    </sly>
+</sly>
+<br>
+
+<sly data-sly-test=${model.gamesName}>
+    gamesName :
+    <sly data-sly-list.gamesName=${model.gamesName}>
+        ${gamesName},
+    </sly>
+</sly>
+<br>
+
+<sly data-sly-test=${model.developedBy}>
+    developedBy :
+    <sly data-sly-list.developedBy=${model.developedBy}>
+        ${developedBy},
+    </sly>
+</sly>
+<br>
+
+<sly data-sly-test=${model.movieName}>
+    movieName :
+    <sly data-sly-list.movieName=${model.movieName}>
+        ${movieName},
+    </sly>
+</sly>
+<br>
+
+<sly data-sly-test=${model.directedBy}>
+    directedBy :
+    <sly data-sly-list.directedBy=${model.directedBy}>
+        ${directedBy},
+    </sly>
+</sly>
