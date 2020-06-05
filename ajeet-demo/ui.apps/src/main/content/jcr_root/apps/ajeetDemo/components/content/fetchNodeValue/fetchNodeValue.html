@@ -1,0 +1,34 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.all @ categories='ajeetDemo.base'}"/>
+
+this is fetch node value component <br>
+
+<sly data-sly-use.model="com.ajeet.demo.core.models.FetchNodeValue"/>
+
+<form action="">
+    <label>Department Name :</label>&ensp;
+    <select name="department" id="department" data-sly-list="${model.set}">
+        <option value="${item}">${item}</option>
+    </select>&emsp; &emsp;
+
+    <input type="button" value="Submit" onclick="showData()"/>
+</form>
+<br>
+    <table id = "tab_data" style="display:none">
+       <thead>
+       <tr>
+           <th>First Name</th>
+           <th> Last Name</th>
+           <th> Department</th>
+           <th> Exeperience</th>
+
+       </tr>
+
+       </thead>
+        <tbody>
+
+
+        </tbody>
+
+
+    </table>

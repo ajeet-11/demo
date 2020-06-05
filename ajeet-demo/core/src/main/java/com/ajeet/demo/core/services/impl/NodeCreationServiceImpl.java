@@ -39,7 +39,7 @@ public class NodeCreationServiceImpl implements NodeCreationService {
 
        // System.out.println(this.folder+this.node+this.path);
        // NodeCreationServiceImpl impl = new NodeCreationServiceImpl();
-        System.out.println(this.folder+this.node+this.path);
+       // System.out.println(this.folder+this.node+this.path);
         display();
     }
 
@@ -48,7 +48,7 @@ public class NodeCreationServiceImpl implements NodeCreationService {
         Map<String, Object> param = new HashMap<String, Object>();
         param.put(ResourceResolverFactory.SUBSERVICE, "getResourceResolver");
         ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
-        System.out.println("we are in display method with OutMap");
+       // System.out.println("we are in display method with OutMap");
         Resource pathResource = resourceResolver.getResource(path);
         // if folder pre available then delete the folder
         Resource check = pathResource.getChild(folder);
@@ -83,9 +83,9 @@ public class NodeCreationServiceImpl implements NodeCreationService {
                             List<Map<String, String>> list1 = outMap.get(data.getDepartment());
                             list1.addAll(list);
                             outMap.put(data.getDepartment(), list1);
-                            System.out.println("if================"+data.getDepartment()+"===="+list1.size());
+                         //   System.out.println("if================"+data.getDepartment()+"===="+list1.size());
                         }else{
-                            System.out.println("else================"+data.getDepartment()+"==="+list.size());
+                          //  System.out.println("else================"+data.getDepartment()+"==="+list.size());
                             outMap.put(data.getDepartment(), list);
 
                         }
@@ -97,11 +97,11 @@ public class NodeCreationServiceImpl implements NodeCreationService {
             Map<String , String>  m1 = new HashMap<String ,String>();
             // using for-each loop for iteration over Map.entrySet()
             for (Map.Entry<String, List<Map<String, String>>> entry : outMap.entrySet()){
-                System.out.println("Key = " + entry.getKey());
+              //  System.out.println("Key = " + entry.getKey());
 
                 List<Map<String, String>> val = entry.getValue();
                 String json = gson.toJson(val);
-                System.out.println("json = " + json);
+              //  System.out.println("json = " + json);
                 m1.put(entry.getKey(), json);
         }
         ModifiableValueMap childMap = nodeResource.adaptTo(ModifiableValueMap.class);
