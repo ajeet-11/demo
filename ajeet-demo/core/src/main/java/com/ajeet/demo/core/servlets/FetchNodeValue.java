@@ -22,7 +22,7 @@ public class FetchNodeValue extends SlingSafeMethodsServlet {
         String resourcePath = "/var/fold1/node1";
         String department = request.getParameter("department");
         String value = request.getResourceResolver().getResource(resourcePath).getValueMap().get(department,String.class);
-        response.getWriter().println(value);
+        response.getWriter().write(value);//println(value);
         /*  if(departDetailService.getMap().containsKey(department)){
             response.getWriter().println(departDetailService.getMap().get(department));
         }else{

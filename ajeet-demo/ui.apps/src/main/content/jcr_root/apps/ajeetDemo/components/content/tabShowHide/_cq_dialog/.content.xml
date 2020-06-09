@@ -57,7 +57,7 @@
                                             fieldLabel="Address"
                                             required="true"
                                             name="./address"/>
-                                    <drpdown
+                                    <dropdown
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/foundation/form/select"
                                             class="cq-dialog-tab-showhide"
@@ -78,7 +78,7 @@
                                                     text="Books"
                                                     value="books"/>
                                         </items>
-                                    </drpdown>
+                                    </dropdown>
                                 </items>
                             </column>
                         </items>

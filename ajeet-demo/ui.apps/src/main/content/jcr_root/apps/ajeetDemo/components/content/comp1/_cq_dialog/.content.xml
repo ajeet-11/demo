@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Comp1 Component"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <comp1
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Comp1"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <well
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <pages
+                                        granite:class="foundation-layout-util-maximized-alt coral-Form-fieldwrapper"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <firstName
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the first name"
+                                                    fieldLabel="First Name"
+                                                    required="true"
+                                                    name="./firstName"/>
+                                            <lastName
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the last name"
+                                                    fieldLabel="Last Name"
+                                                    required="true"
+                                                    name="./lastName"/>
+                                            <contact
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the contact"
+                                                    fieldLabel="Contact No"
+                                                    maxlength="10"
+                                                    required="true"
+                                                    name="./contact"/>
+                                            <address
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the address"
+                                                    fieldLabel="Address"
+                                                    required="true"
+                                                    name="./address"/>
+                                            <age
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the age"
+                                                    fieldLabel="Age"
+                                                    required="true"
+                                                    name="./age"/>
+                                            <instance
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please enter the instance"
+                                                    fieldLabel="Instance"
+                                                    required="true"
+                                                    name="./instance"/>
+                                        </items>
+                                    </pages>
+                                </items>
+                            </well>
+                        </items>
+                    </comp1>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -5,6 +5,10 @@ this is fetch node value component <br>
 
 <sly data-sly-use.model="com.ajeet.demo.core.models.FetchNodeValue"/>
 
+<!--<sly data-sly-test="${wcmmode.edit && !properties.title}">
+    <div class="cq-placeholder cq-marker-start" data-emptytext="Google Maps"></div>
+</sly>-->
+
 <form action="">
     <label>Department Name :</label>&ensp;
     <select name="department" id="department" data-sly-list="${model.set}">

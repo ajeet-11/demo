@@ -21,14 +21,8 @@ public class DepartmentDetailServiceImpl implements DepartmentDetailService {
     Map<String, List<String>> map = new HashMap<String, List<String>>();
 
     @Activate
-    public void activate(displayDepartmentDetail dDetail){
-        this.department = dDetail.department();
-        this.faculty = Arrays.stream(dDetail.faculty()).collect(Collectors.toList());
-        map.put(department, faculty);
-    }
-
     @Modified
-    public void modified(displayDepartmentDetail dDetail){
+    public void activate(displayDepartmentDetail dDetail){
         this.department = dDetail.department();
         this.faculty = Arrays.stream(dDetail.faculty()).collect(Collectors.toList());
         map.put(department, faculty);

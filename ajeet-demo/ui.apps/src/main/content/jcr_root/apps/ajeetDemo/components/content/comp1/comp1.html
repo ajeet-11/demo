@@ -1,0 +1,24 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>
+
+<!--<div id="demo">
+    <h3>Please Click to Get TOP 3 Students</h3>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>-->
+
+<h2>component-1</h2><br>
+<h4>instance is : ${properties.instance}</h4>
+
+<!--<sly data-sly-use.model="com.java.demo.models.StudentDetailModel"/>-->
+<!--
+<sly data-sly-test="${!model.getStudent}">
+    nothing!
+</sly>
+<sly data-sly-test="${model.getStudent}">
+    <sly data-sly-list.text="${model.getStudent}">
+        Student Name : ${text}
+        <br>
+    </sly>
+</sly>
+<button onclick="window.location.href='/bin/student'">COMPARE</button>
+-->

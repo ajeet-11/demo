@@ -4,7 +4,6 @@ import com.ajeet.demo.core.models.DataInformation;
 import com.ajeet.demo.core.services.NodeCreationService;
 import com.google.gson.Gson;
 import org.apache.sling.api.resource.*;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
@@ -36,10 +35,6 @@ public class NodeCreationServiceImpl implements NodeCreationService {
         this.folder = nCreation.folder();
         this.node = nCreation.node();
         this.path = nCreation.path();
-
-       // System.out.println(this.folder+this.node+this.path);
-       // NodeCreationServiceImpl impl = new NodeCreationServiceImpl();
-       // System.out.println(this.folder+this.node+this.path);
         display();
     }
 
@@ -48,15 +43,13 @@ public class NodeCreationServiceImpl implements NodeCreationService {
         Map<String, Object> param = new HashMap<String, Object>();
         param.put(ResourceResolverFactory.SUBSERVICE, "getResourceResolver");
         ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
-       // System.out.println("we are in display method with OutMap");
+
         Resource pathResource = resourceResolver.getResource(path);
         // if folder pre available then delete the folder
         Resource check = pathResource.getChild(folder);
         if (check != null) {
             resourceResolver.delete(check);
         }
-
-      //  System.out.println("pathResource="+pathResource.getPath());
 
         Gson gson = new Gson();
        String jsonfilePath =  "C:\\Users\\Argildx\\Downloads\\MockData1.txt"; // json file location
@@ -83,35 +76,23 @@ public class NodeCreationServiceImpl implements NodeCreationService {
                             List<Map<String, String>> list1 = outMap.get(data.getDepartment());
                             list1.addAll(list);
                             outMap.put(data.getDepartment(), list1);
-                         //   System.out.println("if================"+data.getDepartment()+"===="+list1.size());
                         }else{
-                          //  System.out.println("else================"+data.getDepartment()+"==="+list.size());
                             outMap.put(data.getDepartment(), list);
-
                         }
-
-
-               // outMap.put(dataInformation[k].getDepartment(), list);
             }
 
             Map<String , String>  m1 = new HashMap<String ,String>();
             // using for-each loop for iteration over Map.entrySet()
             for (Map.Entry<String, List<Map<String, String>>> entry : outMap.entrySet()){
-              //  System.out.println("Key = " + entry.getKey());
-
                 List<Map<String, String>> val = entry.getValue();
                 String json = gson.toJson(val);
-              //  System.out.println("json = " + json);
                 m1.put(entry.getKey(), json);
         }
         ModifiableValueMap childMap = nodeResource.adaptTo(ModifiableValueMap.class);
             childMap.putAll(m1);
         }
-
         resourceResolver.commit();
         resourceResolver.close();
-
-
     }
 
     @ObjectClassDefinition(name = "node creation demo")

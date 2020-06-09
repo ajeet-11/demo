@@ -1,0 +1,21 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>
+
+<!--<div id="demo">
+    <h3>Please Click to Get TOP 3 Students</h3>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>-->
+<sly data-sly-use.model="com.ajeet.demo.core.models.Comp2Model"/>
+<h2>component-2</h2>
+
+<sly data-sly-test="${model.list}">
+    <!--<sly data-sly-list.text="${model.list}">
+        list : ${text}
+        <br>
+    </sly>-->
+    ${model.list}
+</sly>
+
+<!--
+<button onclick="window.location.href='/bin/student'">COMPARE</button>
+-->
