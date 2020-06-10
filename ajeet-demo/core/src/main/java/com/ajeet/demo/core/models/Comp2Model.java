@@ -30,12 +30,12 @@ public class Comp2Model {
 
 
 
-    private static final Logger log = LoggerFactory.getLogger(Comp2Model.class);
+//    private static final Logger log = LoggerFactory.getLogger(Comp2Model.class);
 
     @PostConstruct
     public void activate() {
 
-        try {
+       // try {
 
             final ResourceResolver resolver = resource.getResourceResolver();
 
@@ -49,32 +49,31 @@ public class Comp2Model {
 
                     List<String> list = new ArrayList<>();
 
-
                     Resource item = (Resource) it.next();
+                    if(item.isResourceType("ajeetDemo/components/content/comp1")){
+                        String firstName = item.getValueMap().get("firstName", String.class);
+                        String lastName = item.getValueMap().get("lastName", String.class);
+                        String contact = item.getValueMap().get("contact", String.class);
 
-                    String firstName = item.getValueMap().get("firstName", String.class);
-                    String lastName = item.getValueMap().get("lastName", String.class);
-                    String contact = item.getValueMap().get("contact", String.class);
+                        String address = item.getValueMap().get("address", String.class);
+                        String age = item.getValueMap().get("age", String.class);
+                        String instance = item.getValueMap().get("instance", String.class);
 
-                    String address = item.getValueMap().get("address", String.class);
-                    String age = item.getValueMap().get("age", String.class);
-                    String instance = item.getValueMap().get("instance", String.class);
+                        if (firstName!=null || lastName!=null || contact!=null || address!=null
+                                || age!=null ||instance!=null)
+                        {
+                            //  list.clear();
+                            list.add(firstName);
+                            list.add(lastName);
+                            list.add(contact);
 
-                    if (firstName!=null || lastName!=null || contact!=null || address!=null
-                            || age!=null ||instance!=null)
-                    {
-                      //  list.clear();
-                        list.add(firstName);
-                        list.add(lastName);
-                        list.add(contact);
+                            list.add(address);
+                            list.add(age);
+                            list.add(instance);
 
-                        list.add(address);
-                        list.add(age);
-                        list.add(instance);
-
-                       // if(!map.containsKey(instance))
+                            // if(!map.containsKey(instance))
                             map.put(instance, list);
-
+                        }
                     }
                 }
             }
@@ -95,9 +94,9 @@ public class Comp2Model {
                 };
             }));
             this.request.setAttribute(DataSource.class.getName(), ds);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        }
+        //} catch (Exception e) {
+         //   log.error(e.getMessage(), e);
+        //}
     }
 
     public String getList() {
@@ -105,21 +104,7 @@ public class Comp2Model {
       String str =  resource.getValueMap().get("instances", String.class);
         if(str!=null || !str.isEmpty()){
             String [] data = str.substring(1,str.length()-1).split(",");
-            for(int i =0;i<data.length;i++){
-                if(i==0){
-                    response+="firstName = "+data[i]+", ";
-                }else  if(i==1){
-                    response+="lastName = "+data[i]+", ";
-                }else  if(i==2){
-                    response+="contact = "+data[i]+", ";
-                }else  if(i==3){
-                    response+="address = "+data[i]+", ";
-                }else  if(i==4){
-                    response+="age = "+data[i]+", ";
-                }else  if(i==5){
-                    response+="instance = "+data[i];
-                }
-            }
+            response+="firstName = "+data[0]+", lastName = "+data[1]+", contact = "+data[2]+", address = "+data[3]+", age = "+data[4]+", instance = "+data[5];
         }
         return response;
     }
