@@ -1,0 +1,14 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>
+
+<sly data-sly-use.model="com.ajeet.demo.core.models.QueryBuilderDemoModel"/>
+
+this is query builder demo component <br>
+
+<sly data-sly-test="${model.list}">
+    ${model.list} <br>
+</sly>
+
+<sly data-sly-test="${!model.list}">
+    no title <br>
+</sly>
