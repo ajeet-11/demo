@@ -36,13 +36,16 @@ public class QueryBuilderDemoModel {
         Session session = request.getResourceResolver().adaptTo(Session.class);
         PredicateGroup root = PredicateGroup.create(request.getParameterMap());
         Query query = queryBuilder.createQuery(root, session);
+
         Map<String,String> predicateMap = new HashMap<String, String>();
         String path = resource.getValueMap().get("path", String.class);
-        String resourceType = resource.getResourceResolver().getResource(path).getChild("jcr:content").getValueMap().get("sling:resourceType", String.class);
-     //   String resourceType = resource.getValueMap().get("sling:resourceType", String.class);
+        Resource res = resource.getResourceResolver().getResource(path);
+        String resourceType=null;
+        if(res!=null){
+            resourceType = res.getChild("jcr:content").getValueMap().get("sling:resourceType", String.class);
+        }
 
-        System.out.println(resourceType);
-        if(path!=null || !path.isEmpty()){
+        if((res!=null) && (resourceType!=null && !resourceType.isEmpty())){
             predicateMap.put("path",path);
             predicateMap.put("type","jcr:content");
             predicateMap.put("property","sling:resourceType");
@@ -51,10 +54,11 @@ public class QueryBuilderDemoModel {
             Query query1 = queryBuilder.createQuery(PredicateGroup.create(predicateMap), session);
             SearchResult searchResult=query1.getResult();
             for(Hit hit : searchResult.getHits()) {
+
                 String title = request.getResourceResolver().getResource(hit.getPath()).getParent().getName();
                 list.add(title);
             }
-            list.remove(0);
+            list.remove(res.getName());
         }
     }
 

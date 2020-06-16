@@ -4,11 +4,13 @@
 <sly data-sly-use.model="com.ajeet.demo.core.models.QueryBuilderDemoModel"/>
 
 this is query builder demo component <br>
+<!--<sly data-sly-test="${resource.hasChildren}">-->
+    <sly data-sly-test="${model.list}">
+        ${model.list} <br>
+    </sly>
 
-<sly data-sly-test="${model.list}">
-    ${model.list} <br>
-</sly>
-
-<sly data-sly-test="${!model.list}">
-    no title <br>
-</sly>
+    <sly data-sly-test="${!model.list}">
+        no title <br>
+    </sly>
+<!--
+</sly>-->
