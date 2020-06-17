@@ -1,5 +1,6 @@
 package com.ajeet.demo.core.schedulers;
 
+import com.ajeet.demo.core.services.NodeCreationService;
 import com.ajeet.demo.core.services.impl.NodeCreationServiceImpl;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.PersistenceException;
@@ -11,24 +12,37 @@ import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
+import javax.servlet.ServletException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 @Designate(ocd=FetchNodeValueSchedular.SchedularConfig.class)
 @Component(service=Runnable.class)
 public class FetchNodeValueSchedular implements Runnable{
 
     @Reference
-    NodeCreationServiceImpl creationService;
+    NodeCreationService creationService;
+
+    private String scheduler_expression;
+    private Boolean scheduler_concurrent;
+    private Boolean serviceEnabled;
+
+    @Activate
+    @Modified
+    public void activate(SchedularConfig nCreation) throws ServletException, IOException, LoginException {
+        this.scheduler_expression = nCreation.scheduler_expression();
+        this.scheduler_concurrent = nCreation.scheduler_concurrent();
+        this.serviceEnabled = nCreation.serviceEnabled();
+        run();
+    }
 
     @Override
     public void run() {
         try {
             creationService.display();
-        } catch (PersistenceException e) {
-            e.printStackTrace();
         } catch (LoginException e) {
             e.printStackTrace();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -7,11 +7,14 @@ import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.ArrayList;
@@ -19,15 +22,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class})
+@Model(adaptables = SlingHttpServletRequest.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class QueryBuilderDemoModel {
 
     @SlingObject
     private SlingHttpServletRequest request;
-    @SlingObject
-    Resource resource;
+
+    @Inject
+    @Via("resource")
+    private String path;
+
     @OSGiService
     QueryBuilder queryBuilder;
+
     private List list = new ArrayList();
 
     @PostConstruct
@@ -38,8 +45,7 @@ public class QueryBuilderDemoModel {
         Query query = queryBuilder.createQuery(root, session);
 
         Map<String,String> predicateMap = new HashMap<String, String>();
-        String path = resource.getValueMap().get("path", String.class);
-        Resource res = resource.getResourceResolver().getResource(path);
+        Resource res = request.getResourceResolver().getResource(path);
         String resourceType=null;
         if(res!=null){
             resourceType = res.getChild("jcr:content").getValueMap().get("sling:resourceType", String.class);
@@ -65,4 +71,5 @@ public class QueryBuilderDemoModel {
     public List getList(){
         return list;
     }
+
 }
