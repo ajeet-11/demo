@@ -3,11 +3,16 @@
 
 <sly data-sly-use.model="com.ajeet.demo.core.models.SubjectCompModel"/>
 
-<h2>subject Component</h2><br>
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <div class="cq-placeholder cq-marker-start" data-emptytext="subject Component"></div>
+</sly>
 
-<sly data-sly-test="${model.subjectCode}">
-    subjectCode : ${model.subjectCode}
-</sly><br>
-<sly data-sly-test="${model.subjectName}">
-    subjectName : ${model.subjectName}
-</sly><br>
+<sly data-sly-test="${!wcmmode.edit && !wcmmode.design}">
+    <h2>subject Component</h2><br>
+    <sly data-sly-test="${model.subjectCode}">
+        subjectCode : ${model.subjectCode}
+    </sly><br>
+    <sly data-sly-test="${model.subjectName}">
+        subjectName : ${model.subjectName}
+    </sly><br>
+</sly>
