@@ -1,0 +1,13 @@
+<!--<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>-->
+
+<sly data-sly-use.model="com.ajeet.demo.core.models.SubjectCompModel"/>
+
+<h2>subject Component</h2><br>
+
+<sly data-sly-test="${model.subjectCode}">
+    subjectCode : ${model.subjectCode}
+</sly><br>
+<sly data-sly-test="${model.subjectName}">
+    subjectName : ${model.subjectName}
+</sly><br>

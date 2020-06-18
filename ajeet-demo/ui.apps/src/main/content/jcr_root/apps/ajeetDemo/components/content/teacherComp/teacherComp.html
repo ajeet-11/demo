@@ -1,0 +1,37 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.js @ categories='myTraining.base'}"/>
+
+
+<sly data-sly-use.model="com.ajeet.demo.core.models.TeacherCompModel"/>
+<h2>teacher component</h2>
+
+Roll : Teacher
+<sly data-sly-test="${model.firstName}">
+    firstName : ${model.firstName}
+</sly><br>
+<sly data-sly-test="${model.lastName}">
+    lastName : ${model.lastName}
+</sly><br>
+<sly data-sly-test="${model.contact}">
+    contact : ${model.contact}
+</sly><br>
+<sly data-sly-test="${model.email}">
+    email : ${model.email}
+</sly><br>
+<sly data-sly-test="${model.qualification}">
+    qualification : ${model.qualification}
+</sly><br>
+<sly data-sly-test="${model.experience}">
+    experience : ${model.experience}
+</sly><br>
+
+<sly data-sly-test="${model.list}">
+    <label>Subject List :</label>&ensp;
+    <select name="subject" id="subject" data-sly-list="${model.list}">
+        <option value="${item}">${item}</option>
+    </select>
+</sly><br>
+
+<sly data-sly-test="${!model.list}">
+    no data available in this path
+</sly><br>
