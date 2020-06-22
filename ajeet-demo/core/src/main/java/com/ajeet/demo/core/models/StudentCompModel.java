@@ -52,7 +52,7 @@ public class StudentCompModel {
     @OSGiService
     QueryBuilder queryBuilder;
 
-    List list = new ArrayList();
+    private List list = new ArrayList();
 
     @PostConstruct
     public void activate() throws RepositoryException {
@@ -75,7 +75,7 @@ public class StudentCompModel {
                 String subjectName = request.getResourceResolver().getResource(hit.getPath()).getValueMap().get("subjectName", String.class);
                 list.add(subjectName);
             }
-            list.remove(res.getName());
+            //list.remove(res.getName());
         }
     }
 
