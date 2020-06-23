@@ -1,0 +1,21 @@
+
+
+
+
+
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <div class="cq-placeholder cq-marker-start" data-emptytext="tag component"></div>
+</sly>
+
+<sly data-sly-test="${!wcmmode.edit && !wcmmode.design}">
+
+    <sly data-sly-use.model="com.ajeet.demo.core.models.TagCompModel"/>
+    this is tag component <br>
+
+    <sly data-sly-list.text="${model.list}">
+        ${text} <br>
+    </sly>
+    <sly data-sly-test="${!model.list}">
+        no id !!!!!
+    </sly>
+</sly>

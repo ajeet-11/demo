@@ -7,7 +7,7 @@
     <cq:inplaceEditing
             jcr:primaryType="cq:InplaceEditingConfig"
             editorType="text"
-            active="true" type="boolean">
+            active="{Boolean}true">
         <config
                 jcr:primaryType="nt:unstructured"
                 textPropertyName="text"/>
