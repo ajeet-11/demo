@@ -1,0 +1,14 @@
+
+
+<sly data-sly-use.model="com.argildx.demo.core.models.Trainee"/>
+
+adaptToDemo Component :: <br>
+
+<sly data-sly-test.text="${model.employee}">
+    emp name : ${text.name}<br>
+    emp salary : ${text.salary}<br>
+</sly>
+
+<sly data-sly-test.text="${!model.employee}">
+    no data !!
+</sly>
