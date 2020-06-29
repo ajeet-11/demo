@@ -6,10 +6,10 @@ import org.apache.sling.models.annotations.Model;
 @Model(adaptables = Resource.class)
 public class Employee {
 
-    Trainee trainee = new Trainee();
+/*    Trainee trainee = new Trainee();
 
     private String name =trainee.getName();
-    private Float Salary=trainee.getStipend()*3;
+    private Float Salary=trainee.getStipend();
 
     public String getName() {
         return name;
@@ -17,5 +17,5 @@ public class Employee {
 
     public Float getSalary() {
         return Salary;
-    }
+    }*/
 }

@@ -1,14 +1,29 @@
 
-
-<sly data-sly-use.model="com.argildx.demo.core.models.Trainee"/>
+<sly data-sly-use.model="com.ajeet.demo.core.models.Trainee"/>
 
 adaptToDemo Component :: <br>
 
-<sly data-sly-test.text="${model.employee}">
+<!--<sly data-sly-test.text="${model.employee}">
     emp name : ${text.name}<br>
     emp salary : ${text.salary}<br>
+</sly>-->
+
+<sly data-sly-test="${model.id}">
+    session id = ${model.id} <br>
+</sly>
+<sly data-sly-test="${!model.id}">
+    no id <br>
 </sly>
 
+<sly data-sly-list.text="${model.list}">
+    ${text.id} <br>
+</sly>
+
+<sly data-sly-test="${!model.list}">
+   no list!!
+</sly>
+
+<!--
 <sly data-sly-test.text="${!model.employee}">
     no data !!
-</sly>
+</sly>-->
