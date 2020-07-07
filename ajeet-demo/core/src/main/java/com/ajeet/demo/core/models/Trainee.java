@@ -42,7 +42,7 @@ public class Trainee {
 
     @PostConstruct
     public void activate() throws RepositoryException, PersistenceException {
-        if (this.slingSettingsService.getRunModes().contains("publish")){
+      //  if (this.slingSettingsService.getRunModes().contains("publish")){
 
             ResourceResolver resourceResolver = request.getResourceResolver();
             Session session = resourceResolver.adaptTo(Session.class);
@@ -58,7 +58,7 @@ public class Trainee {
                 session.save();
                 resourceResolver.commit();
             }
-        }
+       // }
 
 
        /* Iterator iterator = cug.getMembers();

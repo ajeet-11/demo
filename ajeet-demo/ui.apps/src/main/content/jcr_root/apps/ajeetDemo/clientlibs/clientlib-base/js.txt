@@ -1,2 +1,3 @@
 #base=js
 fetchNodeValue.js
+basePage.js

@@ -1,0 +1,24 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.all @ categories='ajeetDemo.base'}"/>
+
+
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <div class="cq-placeholder cq-marker-start" data-emptytext="resourceBased component"></div>
+</sly>
+
+<sly data-sly-test="${!wcmmode.edit && !wcmmode.design}">
+    <sly data-sly-use.model="com.ajeet.demo.core.models.ResourceBasedModel"/>
+
+    this is resource based component <br>
+
+    <div class = "abc">
+        <form action="">
+            <label>Name :</label>&ensp;
+            <input type="text" id="name" name="name" value="${model.name}">
+            <label>Email :</label>&ensp;
+                <input type="text" id="email" name="emial" value="${model.email}"> &emsp;&emsp;
+
+            <input type="button" value="Submit" onclick="xyz()"/>
+        </form>
+    </div>
+</sly>

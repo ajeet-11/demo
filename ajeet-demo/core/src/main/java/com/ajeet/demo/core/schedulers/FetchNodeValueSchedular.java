@@ -51,12 +51,16 @@ public class FetchNodeValueSchedular implements Runnable{
         @AttributeDefinition(name = "Cron-job expression")
         String scheduler_expression() default "0 0/1 * 1/1 * ? *";
 
+        /* Concurrent execution of the job, which might happen if the previous execution has not yet finished when a new one is scheduled,
+         can be prevented by setting the scheduler.concurrent property to false:
+         */
         @AttributeDefinition(name = "Concurrent task",
                 description = "Whether or not to schedule this task concurrently")
-        boolean scheduler_concurrent() default true;
+        boolean scheduler_concurrent() default false;
 
+        //its used as a check condition if serviceEnable is true then run method will run otherwise not run
         @AttributeDefinition(name = "Enabled",
                 description = "Enable Scheduler")
-        boolean serviceEnabled() default true;
+        boolean serviceEnabled() default false;
     }
 }
